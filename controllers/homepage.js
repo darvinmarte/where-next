@@ -59,3 +59,13 @@ router.get('/login', async (req,res)=> {
         console.error(err);
     }
 });
+
+//sign up route
+
+router.get('/signup', async (req,res) =>{
+    try{
+        //res.render('signUp')
+    }catch(err){
+        console.error(err);
+    }
+})
