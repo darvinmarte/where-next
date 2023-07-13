@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 like.init(
     {
-        id: {
+        like_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,

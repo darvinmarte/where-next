@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 travelPost.init(
     {
-        id: {
+        post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,

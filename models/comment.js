@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 
 comment.init(
     {
-        id: {
+        comment_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
