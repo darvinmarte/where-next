@@ -1,7 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-like.init(
+class Like extends Model {}
+
+
+Like.init(
     {
         like_id: {
             type: DataTypes.INTEGER,
