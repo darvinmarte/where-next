@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Sequelize = require('sequelize');
 const {User, Comment, Like, Travelpost} = require('../models');
 const authorization = require('../utils/auth');
 
@@ -64,7 +65,7 @@ router.get('/login', async (req,res)=> {
 
 router.get('/signup', async (req,res) =>{
     try{
-        //res.render('signUp')
+        //res.render('signUp');
     }catch(err){
         console.error(err);
     }
