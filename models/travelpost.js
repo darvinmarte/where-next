@@ -26,12 +26,8 @@ travelPost.init(
             allowNull: false,
         },
         date: {
-            // type:
+            type: DataTypes.DATE ,
             allowNull: false,
-        },
-        image: {
-            // type: DataTypes.STRING,
-            // allowNull: false,
         },
     },
     {
