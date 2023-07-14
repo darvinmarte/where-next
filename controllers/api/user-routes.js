@@ -54,3 +54,5 @@ res.redirect('/')
         console.error(err);
     }
 });
+
+module.exports = router;
