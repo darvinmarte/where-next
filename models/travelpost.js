@@ -31,10 +31,10 @@ TravelPost.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        // image: {
-        //     // type: 
-        //     allowNull: false,
-        // },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         date: {
             type: DataTypes.DATE ,
             allowNull: false,
