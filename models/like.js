@@ -6,22 +6,22 @@ class Like extends Model {}
 
 Like.init(
     {
-        like_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        user: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
         },
-        post: {
-            type: DataTypes.STRING,
+        post_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'travelPost',
@@ -38,4 +38,4 @@ Like.init(
     }
 );
 
-module.exports = like;
+module.exports = Like;

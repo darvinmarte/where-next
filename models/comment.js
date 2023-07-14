@@ -8,14 +8,14 @@ class Comment extends Model {}
 
 Comment.init(
     {
-        comment_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        user: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
@@ -30,8 +30,8 @@ Comment.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        post: {
-            type: DataTypes.STRING,
+        post_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'travelPost',
@@ -48,4 +48,4 @@ Comment.init(
     }
 );
 
-module.exports = comment;
+module.exports = Comment;

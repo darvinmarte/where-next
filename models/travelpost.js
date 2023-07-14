@@ -5,11 +5,19 @@ class TravelPost extends Model {}
 
 TravelPost.init(
     {
-        post_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         },
         title: {
             type: DataTypes.STRING,
@@ -41,4 +49,4 @@ TravelPost.init(
     }
 );
 
-module.exports = travelPost;
+module.exports = TravelPost;
