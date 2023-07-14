@@ -6,12 +6,8 @@ cloudinary.config({
     secure: true
 });
 
-
-
 // Uploads an image file
-
 const uploadImage = async (imagePath) => {
-
     // Use the uploaded file's name as the asset's public ID and 
     // allow overwriting the asset with new versions
     const options = {
@@ -29,4 +25,14 @@ const uploadImage = async (imagePath) => {
         console.error(error);
     }
 };
+
+// Usage
+uploadImage('/path/to/your/image.jpg')
+    .then(publicId => {
+        console.log('Image uploaded with public ID:', publicId);
+    })
+    .catch(error => {
+        console.error('Error uploading image:', error);
+    });
+
 
