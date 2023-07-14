@@ -1,0 +1,12 @@
+<h2>{{post.title}}</h2>
+<p>Content: {{post.content}}</p>
+<p>Location: {{post.location}}</p>
+<p>Date: {{post.date}}</p>
+<img src="{{post.image}}">
+
+<h3>Comments</h3>
+{{#each post.comments}}
+  <p>{{this}}</p>
+{{/each}}
+
+<p>Likes: {{post.likes}}</p>
