@@ -1,7 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-like.init(
+class Like extends Model {}
+
+
+Like.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -9,16 +12,16 @@ like.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        user: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
         },
-        post: {
-            type: DataTypes.STRING,
+        post_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'travelPost',
@@ -35,4 +38,4 @@ like.init(
     }
 );
 
-module.exports = like;
+module.exports = Like;

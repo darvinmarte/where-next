@@ -1,13 +1,23 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-travelPost.init(
+class TravelPost extends Model {}
+
+TravelPost.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         },
         title: {
             type: DataTypes.STRING,
@@ -22,16 +32,12 @@ travelPost.init(
             allowNull: false,
         },
         image: {
-            // type: 
+            type: DataTypes.STRING,
             allowNull: false,
         },
         date: {
-            // type:
+            type: DataTypes.DATE ,
             allowNull: false,
-        },
-        image: {
-            // type: DataTypes.STRING,
-            // allowNull: false,
         },
     },
     {
@@ -43,4 +49,4 @@ travelPost.init(
     }
 );
 
-module.exports = travelPost;
+module.exports = TravelPost;
