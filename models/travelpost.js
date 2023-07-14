@@ -32,7 +32,7 @@ TravelPost.init(
             allowNull: false,
         },
         image: {
-            // type: 
+            type: DataTypes.STRING,
             allowNull: false,
         },
         date: {
