@@ -16,6 +16,10 @@ const userData = await User.create({
 //activate session
 req.session.save( ()=>{
     req.session.loggedIn = true;
+    //getting the username of the person thats logged in
+    req.session.user = userData.username;
+    //getting the id of the user
+    req.session.userID = userData.id;
     res.status(200).json(userData);
 })
 //redirect
@@ -46,6 +50,10 @@ if(!isPassOk){
 //activate session
 req.session.save( ()=> {
     req.session.loggedIn = true;
+    //getting the username of the person thats logged in
+    req.session.user = userData.username;
+    //getting the id of the user
+    req.session.userID = userData.id;
     res.status(200).json({user: userData, message: 'logged in'})
 }) 
 //redirect
