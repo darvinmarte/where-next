@@ -2,29 +2,21 @@
     {
       "name": "Darvin",
       "email": "darvin@gmail.com",
-      "password": "password12345",
-      "travelPost": "I went here!",
-      "comment": "Wow!"
+      "password": "password12345"
     },
     {
       "name": "Oliver",
       "email": "oliver@gmail.com",
-      "password": "password12345",
-      "travelPost": "I went here!",
-      "comment": "Wow!"
+      "password": "password12345"
     },
     {
       "name": "Peter",
       "email": "peter@gmail.com",
-      "password": "password12345",
-      "travelPost": "I went here!",
-      "comment": "Wow!"
+      "password": "password12345"
     },
     {
         "name": "Noah",
         "email": "noah@gmail.com",
-        "password": "password12345",
-        "travelPost": "I went here!",
-        "comment": "Wow!"
+        "password": "password12345"
       }
   ]
