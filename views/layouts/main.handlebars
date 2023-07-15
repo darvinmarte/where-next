@@ -9,6 +9,7 @@
   <link>
 </head>
 
+{{!-- users will be given the option to log in or sign up --}}
 <body>
   <header>
     <h1>Where Next?</h1>
@@ -22,6 +23,7 @@
     {{/if}}
   </nav>
   <main>
+    {{!-- feed for posts to generate based on newest to oldest posts --}}
     <section>
       {{#each posts}}
       <div class="post">
@@ -29,20 +31,20 @@
         <p>Location: {{location}}</p>
         <p>Date: {{date}}</p>
         <img src="{{image}}">
-
+        {{!-- viewer can view comments --}}
         <h3>Comments</h3>
         <ul>
           {{#each comments}}
           <li>{{this}}</li>
           {{/each}}
         </ul>
-
+        {{!-- allows user to add comments to posts --}}
         <form action="/addComment" method="post">
           <input type="text" name="comment" placeholder="Enter your comment">
           <input type="hidden" name="postId" value="{{id}}">
           <button type="submit">Add Comment</button>
         </form>
-
+        {{!-- viewer can like and see how many likes post has received --}}
         <button class="like-button" data-post-id="{{id}}">
           Like
         </button>
@@ -51,6 +53,7 @@
     {{/each}}
     </section>
     <aside>
+      {{!-- on the right side of the page, viewers can create a new post --}}
       <h2>Create New Post</h2>
       <form action="/createPost" method="post">
         <input type="text" name="title" placeholder="Title">
