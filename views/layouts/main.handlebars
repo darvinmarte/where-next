@@ -49,6 +49,9 @@
           Like
         </button>
         <span class="likes-count">{{likes}} likes</span>
+
+        {{!-- viewer can click here to view the post individually --}}
+        <a href="/posts/{{post.id}}">View Post</a>
       </div>
     {{/each}}
     </section>
