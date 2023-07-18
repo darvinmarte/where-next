@@ -1,4 +1,5 @@
-const createPost = async () => {
+const createPost = async (e) => {
+    e.preventDefault();
     const title = document.querySelector('#title').value.trim();
     const caption = document.querySelector('#caption').value.trim();
     const location = document.querySelector('#location').value.trim();
