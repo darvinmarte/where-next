@@ -14,8 +14,7 @@ router.post('/', async (req,res)=>{
         image: req.body.image,
         user_id: req.session.userID
     });
-
-    res.redirect('/');
+    res.status(200).json(travelpost);
 })
 
 //delete TravelPost delete route on homepage
