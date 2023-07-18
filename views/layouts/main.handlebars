@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Where Next?</title>
   <link rel="stylesheet" href="/css/style.css:">
-  <link>
+
 </head>
 
 {{!-- users will be given the option to log in or sign up --}}
@@ -18,19 +18,20 @@
   </header>
   <nav>
     <a href="/">Home</a>
-    {{#if loggedIn}}
+    {{!-- {{#if loggedIn}} --}}
     <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
+    {{!-- {{else}} --}}
     <a href="/login">Login</a>
-    {{/if}}
+    {{!-- {{/if}} --}}
 
     <a href="/signup">Sign up</a>
   </nav>
 
 {{{body}}}
-{{#if loggedIn}}
-<script src="/js/logout.js"></script>
-{{/if}}
+{{!-- 
+{{#if loggedIn}} --}}
+{{!-- <script src="/js/logout.js"></script>
+{{/if}} --}}
 </body>
 
 

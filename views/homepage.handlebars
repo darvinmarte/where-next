@@ -1,42 +1,16 @@
 <section>
-      {{#each posts}}
-      <div class="post">
-        <h2>{{title}}</h2>
-        <p>Location: {{location}}</p>
-        <p>Date: {{date}}</p>
-        <img src="{{image}}">
-        {{!-- viewer can view comments --}}
-        <h3>Comments</h3>
-        <ul>
-          {{#each comments}}
-          <li>{{this}}</li>
-          {{/each}}
-        </ul>
-        {{!-- allows user to add comments to posts --}}
-        <form action="/addComment" method="post">
-          <input type="text" name="comment" placeholder="Enter your comment">
-          <input type="hidden" name="postId" value="{{id}}">
-          <button type="submit">Add Comment</button>
-        </form>
-        {{!-- viewer can like and see how many likes post has received --}}
-        <button class="like-button" data-post-id="{{id}}">
-          Like
-        </button>
-        <span class="likes-count">{{likes}} likes</span>
-
-        {{!-- viewer can click here to view the post individually --}}
-        <a href="/posts/{{post.id}}">View Post</a>
-      </div>
+      {{#each travelPosts}}
+      {{> post-details}}
     {{/each}}
-    </section>
+</section>
     <aside>
       {{!-- on the right side of the page, viewers can create a new post --}}
       <h2>Create New Post</h2>
-      <form action="/createPost" method="post">
+      <form>
         <input type="text" name="title" placeholder="Title">
         <input type="text" name="caption" placeholder="Caption">
         <input type="text" name="location" placeholder="Location">
-        <input type="file" name="image" accept="image/*">
+        <input type="text" name="image">
          <button type="submit">Create Post</button>
       </form>
     </aside>
