@@ -28,6 +28,10 @@ Like.init(
                 key: 'id'
             }
         },
+        count:{
+            type:DataTypes.INTEGER,
+            
+        }
     },
     {
         sequelize,

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Sequelize = require('sequelize');
 const {User, Comment, Like, Travelpost} = require('../models');
 const authorization = require('../utils/auth');
 
@@ -21,7 +20,7 @@ router.get('/',authorization,async (req,res) => {
         console.log(travelPosts);
         res.json(travelPosts);
         //render with appropriate view file
-        // res.render('', {travelPosts})
+        res.render('', {travelPosts,loggedIn: req.session.loggedIn})
 
     }catch(err){
         console.error(err);
@@ -46,7 +45,7 @@ router.get('/post/:id', authorization, async (req,res) => {
     const travelPost = travelpostData.get({plain: true});
     res.json(travelPost);
     //render to the appropriate view
-    // res.render('', {travelPost}); 
+       res.render('homepage', { travelPost, loggedIn: req.session.loggedIn }); 
 }catch (err) {
     console.error(err);
 }
@@ -55,7 +54,7 @@ router.get('/post/:id', authorization, async (req,res) => {
 //login route 
 router.get('/login', async (req,res)=> {
     try{
-    //res.render('login');
+    res.render('login');
     }catch(err){
         console.error(err);
     }
@@ -65,10 +64,12 @@ router.get('/login', async (req,res)=> {
 
 router.get('/signup', async (req,res) =>{
     try{
-        //res.render('signUp');
+        res.render('signUp');
     }catch(err){
         console.error(err);
     }
 })
 
-module.exports=router
+//logout route
+
+module.exports = router;
