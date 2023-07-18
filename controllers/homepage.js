@@ -70,3 +70,5 @@ router.get('/signup', async (req,res) =>{
         console.error(err);
     }
 })
+
+module.exports=router
