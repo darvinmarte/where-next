@@ -14,7 +14,8 @@ router.get('/',authorization, async (req,res) => {
                     model: User,
                     model: Like,
                 }
-            ]
+            ],
+            order:[['date','DESC']]
         });
         //serialization
         const travelPosts = travelPostsData.map( (travelpost) => travelpost.get({plain: true}));
