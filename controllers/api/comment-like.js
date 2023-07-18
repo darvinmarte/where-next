@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const router = require('express').Router();
 const {  User,Comment, Like } = require('../../models');
  
-
+// /api/comment-like/
 // add comment
 router.post('/post/:id',async (req,res) =>{
     try{
@@ -35,16 +35,31 @@ router.delete('/post/:id',async(req,res)=>{
 
 //add like (PUT)
 
-router.put('/post/:id', async (req,res)=>{
-    const updatedLike = Like.update({
-        count : count++
-      },{
+router.put('/post/:id/like', async (req, res) => {
+  try {
+   
+    const existingLike = await Like.findOne({
       where: {
+        user_id: req.session.userID,
         post_id: req.params.id
       }
-      });
-    res.status(200).json(updatedLike);
+    });
+
+    if (existingLike) {
+   
+      await existingLike.destroy();
+      res.status(200).json({ message: 'Like removed successfully.' });
+    } else {
     
-})
+      const newLike = await Like.create({
+        user_id: req.session.userID,
+        post_id: req.params.id
+      });
+      res.status(200).json({ message: 'Post liked successfully.', like: newLike });
+    }
+  } catch (err) {
+    console.error('Error liking post:', err);
+  }
+});
 
 module.exports = router;

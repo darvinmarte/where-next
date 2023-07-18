@@ -18,7 +18,12 @@ router.get('/',authorization, async (req,res) => {
             order:[['date','DESC']]
         });
         //serialization
-        const travelPosts = travelPostsData.map( (travelpost) => travelpost.get({plain: true}));
+        const travelPosts = travelPostsData.map((travelpost) => {
+            const plainTravelPost = travelpost.get({ plain: true });
+            plainTravelPost.likeCount = travelpost.likes.length; 
+            return plainTravelPost;
+        });
+
         console.log(travelPosts);
         //render with appropriate view file // send loggedIN
         res.render('homepage',{travelPosts, loggedIn: req.session.loggedIn})
@@ -37,13 +42,17 @@ router.get('/post/:id',authorization, async (req,res) => {
         include :[ 
             {
                 model: User,
-                model: Comment,
                 model: Like,
+            },{
+                model: Comment,
+                attributes:['comment','date']
+
             }
         ]
     });
     //serialization
     const post = travelpostData.get({plain: true});
+    post.likeCount = travelpostData.likes.length; 
     console.log(post);
     //render to the appropriate view
        res.render('individualPost', { post, loggedIn: req.session.loggedIn }); 

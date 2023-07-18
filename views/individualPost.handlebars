@@ -4,7 +4,10 @@
 <p>Location: {{post.location}}</p>
 <p>Date: {{post.date}}</p>
 <p>THIS SHOUDLD BE IMAGE {{post.image}}</p>
-<p>Likes: {{likes}}</p>
+<span id="likes-count">{{post.likeCount}} likes</span>
+<button id="like-button">
+  Like
+</button>
 
 <h3>Comments</h3>
 {{!-- {{#each }} --}}
@@ -18,3 +21,4 @@
   <button type="submit">Add Comment</button>
 </form>
 <script src="/js/createcomment.js"></script>
+<script src="/js/addlike.js"></script>

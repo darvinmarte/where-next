@@ -5,11 +5,9 @@
     {{!-- <img src="{{image}}"> --}}
 
    
-    {{!-- viewer can like and see how many likes post has received --}}
-    <button class="like-button" data-post-id="{{id}}">
-        Like
-    </button>
-    {{!-- <span class="likes-count">{{likes}} likes</span> --}}
+    {{!-- viewer can see how many likes post has received --}}
+   
+    <span id="likes-count" >{{likeCount}} likes</span>
 
     {{!-- viewer can click here to view the post individually --}}
     <a href="/post/{{id}}">View Post</a>
