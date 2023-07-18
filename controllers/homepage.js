@@ -5,7 +5,7 @@ const authorization = require('../utils/auth');
 
 //render all travelposts with a get route with the authentication
 //authorization
-router.get('/',async (req,res) => {
+router.get('/',authorization, async (req,res) => {
     //get the data
     try{
         const travelPostsData = await TravelPost.findAll({
@@ -20,7 +20,7 @@ router.get('/',async (req,res) => {
         const travelPosts = travelPostsData.map( (travelpost) => travelpost.get({plain: true}));
         console.log(travelPosts);
         //render with appropriate view file // send loggedIN
-        res.render('homepage',{travelPosts})
+        res.render('homepage',{travelPosts, loggedIn: req.session.loggedIn})
 
     }catch(err){
         console.error(err);
@@ -29,7 +29,7 @@ router.get('/',async (req,res) => {
 
 //render specific travelpost 
 //authorization
-router.get('/post/:id', async (req,res) => {
+router.get('/post/:id',authorization, async (req,res) => {
    try  {
     //get the data of the travelpost with likes and comments
     const travelpostData = await TravelPost.findByPk(req.params.id, {
@@ -45,7 +45,7 @@ router.get('/post/:id', async (req,res) => {
     const post = travelpostData.get({plain: true});
     console.log(post);
     //render to the appropriate view
-       res.render('individualPost', { post}); 
+       res.render('individualPost', { post, loggedIn: req.session.loggedIn }); 
 }catch (err) {
     console.error(err);
 }
@@ -70,6 +70,5 @@ router.get('/signup', async (req,res) =>{
     }
 })
 
-//logout route
 
 module.exports = router;

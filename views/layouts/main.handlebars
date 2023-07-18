@@ -18,20 +18,20 @@
   </header>
   <nav>
     <a href="/">Home</a>
-    {{!-- {{#if loggedIn}} --}}
+    {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
-    {{!-- {{else}} --}}
+    {{else}}
     <a href="/login">Login</a>
-    {{!-- {{/if}} --}}
-
     <a href="/signup">Sign up</a>
+    {{/if}}
+
   </nav>
 
 {{{body}}}
-{{!-- 
-{{#if loggedIn}} --}}
-{{!-- <script src="/js/logout.js"></script>
-{{/if}} --}}
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </body>
 
 
