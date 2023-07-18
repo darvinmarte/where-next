@@ -1,26 +1,32 @@
 const router = require('express').Router();
-const {User, Comment, Like, Travelpost} = require('../models');
+const {User, Comment, Like, TravelPost} = require('../models');
 const authorization = require('../utils/auth');
 
 
 //render all travelposts with a get route with the authentication
-router.get('/',authorization,async (req,res) => {
+//authorization
+router.get('/',authorization, async (req,res) => {
     //get the data
     try{
-        const travelPostsData = await Travelpost.findAll({
+        const travelPostsData = await TravelPost.findAll({
             include:[
                 {
                     model: User,
-                    model: Like
+                    model: Like,
                 }
-            ]
+            ],
+            order:[['date','DESC']]
         });
         //serialization
-        const travelPosts = travelPostsData.map( (travelpost) => travelpost.get({plain: true}));
+        const travelPosts = travelPostsData.map((travelpost) => {
+            const plainTravelPost = travelpost.get({ plain: true });
+            plainTravelPost.likeCount = travelpost.likes.length; 
+            return plainTravelPost;
+        });
+
         console.log(travelPosts);
-        res.json(travelPosts);
-        //render with appropriate view file
-        res.render('', {travelPosts,loggedIn: req.session.loggedIn})
+        //render with appropriate view file // send loggedIN
+        res.render('homepage',{travelPosts, loggedIn: req.session.loggedIn})
 
     }catch(err){
         console.error(err);
@@ -28,24 +34,28 @@ router.get('/',authorization,async (req,res) => {
 });
 
 //render specific travelpost 
-
-router.get('/post/:id', authorization, async (req,res) => {
+//authorization
+router.get('/post/:id',authorization, async (req,res) => {
    try  {
     //get the data of the travelpost with likes and comments
-    const travelpostData = travelpost.findByPk(req.params.id, {
+    const travelpostData = await TravelPost.findByPk(req.params.id, {
         include :[ 
             {
                 model: User,
                 model: Like,
-                model: Comment 
+            },{
+                model: Comment,
+                attributes:['comment','date']
+
             }
         ]
     });
     //serialization
-    const travelPost = travelpostData.get({plain: true});
-    res.json(travelPost);
+    const post = travelpostData.get({plain: true});
+    post.likeCount = travelpostData.likes.length; 
+    console.log(post);
     //render to the appropriate view
-       res.render('homepage', { travelPost, loggedIn: req.session.loggedIn }); 
+       res.render('individualPost', { post, loggedIn: req.session.loggedIn }); 
 }catch (err) {
     console.error(err);
 }
@@ -70,6 +80,5 @@ router.get('/signup', async (req,res) =>{
     }
 })
 
-//logout route
 
 module.exports = router;

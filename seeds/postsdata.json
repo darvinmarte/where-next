@@ -1,0 +1,19 @@
+[
+    {
+      "title": "Darvins post",
+      "content": "this is the content",
+      "location": "paris",
+      "image": "this is paris image",
+      "date": "12/05/2022",
+      "user_id":1
+    },
+    {
+      "title": "Peters post",
+      "content": "this is the content",
+      "location": "rome",
+      "image": "this is rome image",
+      "date": "12/05/2022",
+      "user_id":2
+    }
+  
+  ]
