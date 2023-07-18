@@ -22,12 +22,12 @@ req.session.save( ()=>{
     req.session.userID = userData.id;
     res.status(200).json(userData);
 })
-//redirect
-// res.redirect('/')
+
     }catch(err){
         console.error(err);
     }
 });
+
 //login route
 router.post('/login', async (req,res)=> {
     try{
@@ -56,11 +56,22 @@ req.session.save( ()=> {
     req.session.userID = userData.id;
     res.status(200).json({user: userData, message: 'logged in'})
 }) 
-//redirect
-res.redirect('/')
     }catch(err){
         console.error(err);
     }
 });
+
+//logout
+
+router.post('/logout',(req,res)=> {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(200).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 
 module.exports = router;
