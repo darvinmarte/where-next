@@ -5,16 +5,30 @@ const {  User,Comment, Like } = require('../../models');
 
 // add comment
 router.post('/post/:id',async (req,res) =>{
-    const commentData = await Comment.create({
+    try{
+      const commentData = await Comment.create({
         user_id:req.session.userID,
         comment:req.body.comment,
         post_id: req.params.id
 
     });
-    // res.redirect('/post/:id');
-    location.reload();
+    res.status(200).json(commentData);
+  }catch(err){
+    res.status(500).json(err)
+  }
 })
 // delete comment
+router.delete('/post/:id',async(req,res)=>{
+  try{
+    const commentToDelete = await Comment.destroy({
+      where:{ 
+        
+      }
+    })
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
 
 //add like (PUT)
 
@@ -26,9 +40,8 @@ router.put('/post/:id', async (req,res)=>{
         post_id: req.params.id
       }
       });
-    res.json(updatedLike);
+    res.status(200).json(updatedLike);
     
-     location.reload();
 })
 
 module.exports = router;
