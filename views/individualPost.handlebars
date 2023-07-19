@@ -10,9 +10,9 @@
 </button>
 
 <h3>Comments</h3>
-{{!-- {{#each }} --}}
-  {{!-- <p>{{NEED A PARTIAL HERE}}</p> --}}
-{{!-- {{/each}} --}}
+{{#each post.comments}}
+  {{> commentPartial }}
+{{/each}}
 
 {{!-- allows user to add comments to posts --}}
 <form class="create-comment">
