@@ -16,6 +16,7 @@ router.post('/', async (req,res)=>{
         date: currentDate
     });
     res.status(200).json(travelpost);
+    console.log(travelpost);
 })
 
 //delete TravelPost delete route on homepage
