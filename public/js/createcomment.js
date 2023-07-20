@@ -1,7 +1,7 @@
-const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length - 1
-];
 const createComment = async (e) =>{
+  const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+  ];
     e.preventDefault();
     const comment = document.querySelector('#comment').value.trim();
     

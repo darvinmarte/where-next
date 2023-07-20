@@ -21,4 +21,23 @@ router.post('/', async (req,res)=>{
 
 //delete TravelPost delete route on homepage
 
+router.delete('/:id', async(req,res) =>{
+    try{
+
+        const travelPost = await TravelPost.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        if (!travelPost) {
+            res.status(404).json({ message: 'Category with given ID doesnt exist ' });
+        } else {
+            res.status(200).json(travelPost);
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+})
+
 module.exports = router;
