@@ -23,6 +23,7 @@
 
 - The link to the deployed application is provided below.
 
+https://wherenext-e8da889fad0c.herokuapp.com/login
 
 ## Contributions
 
