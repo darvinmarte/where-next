@@ -1,4 +1,4 @@
-const authorization = (req, res, next) => {
+const authentication = (req, res, next) => {
 
     if (!req.session.loggedIn) {
         res.redirect('/login');
@@ -7,4 +7,4 @@ const authorization = (req, res, next) => {
     }
 };
 
-module.exports = authorization;
+module.exports = authentication;
