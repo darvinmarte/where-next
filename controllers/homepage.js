@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const {User, Comment, Like, TravelPost} = require('../models');
-const authorization = require('../utils/auth');
+const authentication = require('../utils/auth');
 
 
 //render all travelposts with a get route with the authentication
-//authorization
-router.get('/',authorization, async (req,res) => {
+//authentication
+router.get('/',authentication, async (req,res) => {
     //get the data
     try{
         const travelPostsData = await TravelPost.findAll({
@@ -26,7 +26,7 @@ router.get('/',authorization, async (req,res) => {
 
         console.log(travelPosts);
         //render with appropriate view file // send loggedIN
-        res.render('homepage',{travelPosts, loggedIn: req.session.loggedIn})
+        res.render('homepage',{travelPosts, loggedIn: req.session.loggedIn, user: req.session.user})
 
     }catch(err){
         console.error(err);
@@ -34,8 +34,8 @@ router.get('/',authorization, async (req,res) => {
 });
 
 //render specific travelpost 
-//authorization
-router.get('/post/:id',authorization, async (req,res) => {
+//authentication
+router.get('/post/:id',authentication, async (req,res) => {
    try  {
     //get the data of the travelpost with likes and comments
     const travelpostData = await TravelPost.findByPk(req.params.id, {
@@ -55,7 +55,7 @@ router.get('/post/:id',authorization, async (req,res) => {
     post.likeCount = travelpostData.likes.length; 
     console.log(post);
     //render to the appropriate view
-       res.render('individualPost', { post, loggedIn: req.session.loggedIn }); 
+       res.render('individualPost', { post, loggedIn: req.session.loggedIn, user: req.session.user }); 
 }catch (err) {
     console.error(err);
 }
