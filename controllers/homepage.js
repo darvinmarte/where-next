@@ -53,9 +53,9 @@ router.get('/post/:id',authentication, async (req,res) => {
     //serialization
     const post = travelpostData.get({plain: true});
     post.likeCount = travelpostData.likes.length; 
-    console.log(post);
+    const isAuthor = travelpostData.user_id === req.session.userID;
     //render to the appropriate view
-       res.render('individualPost', { post, loggedIn: req.session.loggedIn, user: req.session.user }); 
+       res.render('individualPost', { post, loggedIn: req.session.loggedIn, user: req.session.user , isAuthor}); 
 }catch (err) {
     console.error(err);
 }
