@@ -1,5 +1,8 @@
 {{!-- viewer can see the individual post they selected in the postFeed --}}
 <h2>{{post.title}}</h2>
+{{#if isAuthor}}
+<button id="deleteButton">DELETE BUTTON</button>
+{{/if}}
 <p>Content: {{post.content}}</p>
 <p>Location: {{post.location}}</p>
 <p>Date: {{post.date}}</p>
@@ -22,3 +25,6 @@
 </form>
 <script src="/js/createcomment.js"></script>
 <script src="/js/addlike.js"></script>
+{{#if isAuthor}}
+<script src="/js/deletepost.js"></script>
+{{/if}}
