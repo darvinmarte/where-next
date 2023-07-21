@@ -1,5 +1,5 @@
 {{!-- viewer can see the individual post they selected in the postFeed --}}
-<h2>{{post.title}}</h2>
+<h4>{{post.title}}</h4>
 {{#if isAuthor}}
 <button id="deleteButton">DELETE BUTTON</button>
 {{/if}}
@@ -12,7 +12,7 @@
   Like
 </button>
 
-<h3>Comments</h3>
+<h5>Comments</h5>
 {{#each post.comments}}
   {{> commentPartial }}
 {{/each}}

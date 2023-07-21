@@ -66,16 +66,31 @@ aside{
   margin: auto;
 }
 
-h2{
-    font-size: 400%;
-    text-align: center;
-    color:green;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
+
 form button{
   display:inline-flex; /* Display link as blocks to take full width */
   border-radius:8px;
   padding: 15px 20px; /* Add some padding around the links */
   color: #180606; /* Set the text color to white */
   text-decoration: none; /* Remove underlines from links */ 
+}
+
+.main-feed {
+  max-width: 800px; /* Set the maximum width of the main feed */
+  margin: 0 auto; /* Center the main feed on the page */
+  padding: 20px; /* Add some padding around the posts */
+}
+
+.post{
+  perspective: 150rem;
+  top: 30%;
+  left: 33%;
+  border-radius: 25px;
+  width: 500px;
+  border: solid black 2px;
+  padding: 20px; 
+  margin-top: 5px;
+}
+h2{
+  text-align: center;
 }
