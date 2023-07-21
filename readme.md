@@ -13,6 +13,8 @@
 ## Description
 
 - An application created for travelers who travel around the world and want to create travel logs on their experience that others can see and interact with.
+- Travel blog allows you to create a post that shares the travelers location, photo, description and allows other users to interact by liking and commenting.
+- Users must sign in, in order to be able to post and interact. 
 
 
 ## Installation

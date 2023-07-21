@@ -5,15 +5,14 @@
 {{/if}}
 <p>Content: {{post.content}}</p>
 <p>Location: {{post.location}}</p>
-<p>Date: {{post.date}}</p>
-<img src="{{post.image}}" class="center"></img>
-<div class="float-right">
-  <span id="likes-count">{{post.likeCount}} likes</span>
-  <button id="like-button">
-    Like
-  </button>
-</div>
-<h5>Comments</h5>
+<p>Date: {{formatDate post.date}}</p>
+<img src="{{post.image}}"></img>
+<span id="likes-count">{{post.likeCount}} likes</span>
+<button id="like-button">
+  Like
+</button>
+
+<h3>Comments</h3>
 {{#each post.comments}}
   {{> commentPartial }}
 {{/each}}
