@@ -26,9 +26,18 @@ h1{
     color: #fff; /* Set the text color to white */
     text-decoration: none; /* Remove underlines from links */
   }
-  
-  /* Change link color on hover */
+   /* Change link color on hover */
   nav a:hover {
+    background-color: #555;
+  }
+
+  nav button {
+    display:inline-flex; /* Display links as blocks to take full width */
+    padding: 15px 20px; /* Add some padding around the links */
+    color: #fff; /* Set the text color to white */
+    text-decoration: none; /* Remove underlines from links */
+  } 
+  nav button:hover {
     background-color: #555;
   }
   
