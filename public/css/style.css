@@ -120,10 +120,15 @@ h5{
 
 .float-right{
   float:right;
-  margin-right: 47%;
+  margin-right: 43%;
 }
 
 .float-left{
   float:left;
   margin-left: 40%;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 25%; 
 }
