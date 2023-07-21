@@ -1,3 +1,6 @@
+// Import Handlebars library
+const Handlebars = require('handlebars');
+
 // Custom helper function to format date
 Handlebars.registerHelper('formatDate', function (dateString) {
     const date = new Date(dateString);
@@ -5,3 +8,5 @@ Handlebars.registerHelper('formatDate', function (dateString) {
     const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
     return formattedDate;
   });
+
+  module.exports = Handlebars;
