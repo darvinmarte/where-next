@@ -1,8 +1,10 @@
-<section>
-      {{#each travelPosts}}
-      {{> post-details}}
-    {{/each}}
-</section>
+<div class="main-feed">
+  <section class="">
+        {{#each travelPosts}}
+        {{> post-details}}
+      {{/each}}
+  </section>
+</div>
     <aside>
       {{!-- on the right side of the page, viewers can create a new post --}}
       <h2>Create New Post</h2>
@@ -13,7 +15,7 @@
         <button id="upload_widget" class="cloudinary-button">
           Upload image
         </button>
-         <button type="submit">Create Post</button>
+         <button type="submit" class="cr-button bg-white">Create Post</button>
       </form>
     </aside>
 <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">

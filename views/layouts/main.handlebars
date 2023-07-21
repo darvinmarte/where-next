@@ -16,10 +16,11 @@
       <h1 class="text-3x1 font-medium">Where Next?</h1>
     </section>
   </header>
+ 
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-    <p>Logged as : {{user}}</p>
+    <a class="login-status">Logged as : {{user}}</a>
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>
