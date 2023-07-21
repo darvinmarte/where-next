@@ -1,28 +1,31 @@
 {{!-- viewer can see the individual post they selected in the postFeed --}}
 <h4>{{post.title}}</h4>
 {{#if isAuthor}}
-<button id="deleteButton">DELETE BUTTON</button>
+<button id="deleteButton" class="center">DELETE</button>
 {{/if}}
 <p>Content: {{post.content}}</p>
 <p>Location: {{post.location}}</p>
 <p>Date: {{post.date}}</p>
-<img src="{{post.image}}"></img>
-<span id="likes-count">{{post.likeCount}} likes</span>
-<button id="like-button">
-  Like
-</button>
-
+<img src="{{post.image}}" class="center"></img>
+<div class="float-right">
+  <span id="likes-count">{{post.likeCount}} likes</span>
+  <button id="like-button">
+    Like
+  </button>
+</div>
 <h5>Comments</h5>
 {{#each post.comments}}
   {{> commentPartial }}
 {{/each}}
 
 {{!-- allows user to add comments to posts --}}
-<form class="create-comment">
-  <input type="text" id="comment" placeholder="Enter your comment">
-  <input type="hidden" name="postId" value="{{id}}">
-  <button type="submit">Add Comment</button>
-</form>
+<div class="float-left">
+  <form class="create-comment">
+    <input type="text" id="comment" placeholder="Enter your comment">
+    <input type="hidden" name="postId" value="{{id}}">
+    <button type="submit">Add Comment</button>
+  </form>
+</div>
 <script src="/js/createcomment.js"></script>
 <script src="/js/addlike.js"></script>
 {{#if isAuthor}}
