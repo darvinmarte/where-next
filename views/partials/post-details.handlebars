@@ -2,13 +2,15 @@
     <h2>{{title}}</h2>
     <p>Location: {{location}}</p>
     <p>Date: {{formatDate date}}</p>
-    <img src="{{image}}">
+    <img src="{{image}}" class="center">
 
    
     {{!-- viewer can see how many likes post has received --}}
    
-    <span id="likes-count" >{{likeCount}} likes</span>
+    <div class="float-left">
+        <span id="likes-count" >{{likeCount}} likes</span>
 
     {{!-- viewer can click here to view the post individually --}}
-    <a href="/post/{{id}}">View Post</a>
+        <a href="/post/{{id}}">View Post</a>
+    </div>
 </div>
