@@ -1,4 +1,4 @@
-<div class="main-feed">
+<div class="main-feed max-w-800">
   <section class="">
         {{#each travelPosts}}
         {{> post-details}}
@@ -7,7 +7,7 @@
 </div>
     <aside>
       {{!-- on the right side of the page, viewers can create a new post --}}
-      <h2>Create New Post</h2>
+      <h2 class="center">Create New Post</h2>
       <form class="newpost">
         <input type="text" id="title" placeholder="Title">
         <input type="text" id="caption" placeholder="Caption">

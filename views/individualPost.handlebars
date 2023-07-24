@@ -6,10 +6,10 @@
 <p>Content: {{post.content}}</p>
 <p>Location: {{post.location}}</p>
 <p>Date: {{formatDate post.date}}</p>
-<div class="float-right">
+<div class="float-right border-box bg-white">
   <img src="{{post.image}}" class="middle"></img>
   <span id="likes-count">{{post.likeCount}} likes</span>
-  <button id="like-button">
+  <button id="like-button" class="center">
     Like
   </button>
 </div>
