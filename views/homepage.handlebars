@@ -1,22 +1,27 @@
 <div class="main-feed max-w-800">
   <section class="">
         {{#each travelPosts}}
+        <div class="columns-1">
         {{> post-details}}
+        </div>
+          
       {{/each}}
   </section>
 </div>
     <aside>
       {{!-- on the right side of the page, viewers can create a new post --}}
-      <h2 class="center">Create New Post</h2>
-      <form class="newpost">
-        <input type="text" id="title" placeholder="Title">
-        <input type="text" id="caption" placeholder="Caption">
-        <input type="text" id="location" placeholder="Location">
-        <button id="upload_widget" class="cloudinary-button">
+      <h2>Create New Post</h2>
+      <div class="">
+      <form class="newpost addpost">
+        <input  class='item' type="text" id="title" placeholder="Title">
+        <input  class='item caption' type="text" id="caption" placeholder="Caption">
+        <input class='item' type="text" id="location" placeholder="Location">
+        <button  class='item buttons' id="upload_widget" class="cloudinary-button">
           Upload image
         </button>
-         <button type="submit" class="cr-button bg-white">Create Post</button>
+         <button type="submit" class="createbutton buttons">Create Post</button>
       </form>
+      </div>
     </aside>
 <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">
 </script>
